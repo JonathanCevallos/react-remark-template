@@ -1,43 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html class="no-js css-menubar" lang="en">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/material/base/assets/images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/material/base/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <title>React App</title>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  <!-- ######## Remark Template ######## -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/css/bootstrap.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/css/bootstrap-extend.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/base/assets/css/site.minfd53.css?v4.0.1">
+
+  <!-- Skin tools (demo site only) -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/css/skintools.minfd53.css?v4.0.1">
+  <script src="%PUBLIC_URL%/material/base/assets/js/Plugin/skintools.minfd53.js?v4.0.1"></script>
+
+  <!-- Plugins -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/vendor/animsition/animsition.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/vendor/asscrollable/asScrollable.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/vendor/switchery/switchery.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/vendor/intro-js/introjs.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/vendor/slidepanel/slidePanel.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/vendor/flag-icon-css/flag-icon.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/vendor/waves/waves.minfd53.css?v4.0.1">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/fonts/material-design/material-design.minfd53.css?v4.0.1">
+  <link rel="stylesheet" href="%PUBLIC_URL%/material/global/fonts/brand-icons/brand-icons.minfd53.css?v4.0.1">
+  <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700">
+
+  <!-- Scripts -->
+  <script src="%PUBLIC_URL%/material/global/vendor/breakpoints/breakpoints.minfd53.js?v4.0.1"></script>
+  <script>
+    Breakpoints();
+  </script>
+  <!-- ######## /Remark Template ######## -->
+</head>
+
+<body class="animsition">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <!-- ######## Remark Template ######## -->
+  <!-- Core  -->
+  <script
+    src="%PUBLIC_URL%/material/global/vendor/babel-external-helpers/babel-external-helpersfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/jquery/jquery.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/popper-js/umd/popper.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/bootstrap/bootstrap.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/animsition/animsition.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/mousewheel/jquery.mousewheel.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/asscrollbar/jquery-asScrollbar.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/asscrollable/jquery-asScrollable.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/ashoverscroll/jquery-asHoverScroll.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/waves/waves.minfd53.js?v4.0.1"></script>
+
+  <!-- Plugins -->
+  <script src="%PUBLIC_URL%/material/global/vendor/switchery/switchery.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/vendor/intro-js/intro.minfd53.js?v4.0.1"></script>
+  <!-- <script src="%PUBLIC_URL%/material/global/vendor/screenfull/screenfull.minfd53.js?v4.0.1"></script> -->
+  <script src="%PUBLIC_URL%/material/global/vendor/slidepanel/jquery-slidePanel.minfd53.js?v4.0.1"></script>
+
+  <!-- Scripts -->
+  <script src="%PUBLIC_URL%/material/global/js/State.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/js/Component.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/js/Plugin.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/js/Base.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/js/Config.minfd53.js?v4.0.1"></script>
+
+  <script src="%PUBLIC_URL%/material/base/assets/js/Section/Menubar.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/base/assets/js/Section/GridMenu.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/base/assets/js/Section/Sidebar.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/base/assets/js/Section/PageAside.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/base/assets/js/Plugin/menu.minfd53.js?v4.0.1"></script>
+
+  <!-- Config -->
+  <script src="%PUBLIC_URL%/material/global/js/config/colors.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/base/assets/js/config/tour.minfd53.js?v4.0.1"></script>
+  <script>
+    Config.set('assets', '%PUBLIC_URL%/material/base/assets');
+  </script>
+
+  <!-- Page -->
+  <script src="%PUBLIC_URL%/material/base/assets/js/Site.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/js/Plugin/asscrollable.minfd53.js?v4.0.1"></script>
+
+  <script src="%PUBLIC_URL%/material/global/js/Plugin/slidepanel.minfd53.js?v4.0.1"></script>
+  <script src="%PUBLIC_URL%/material/global/js/Plugin/switchery.minfd53.js?v4.0.1"></script>
+
+  <script>
+    (function (document, window, $) {
+      'use strict';
+
+      var Site = window.Site;
+      $(document).ready(function () {
+        Site.run();
+      });
+    })(document, window, jQuery);
+  </script>
+  <!-- ######## /Remark Template ######## -->
+</body>
+
 </html>
