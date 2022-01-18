@@ -6,20 +6,11 @@ import NotFound from "./pages/NotFound/NotFound";
 import Remark from "./templates/remark/Remark";
 import Products from "./pages/Products/Products";
 import Profesionales from "./pages/Profesionales/Profesionales";
+import Routers from "./routers/Routers";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<h1>Página Principal</h1>}></Route>
-        <Route path="/dashboard/*" element={ <Remark /> } >
-          <Route path="products" element={ <Products /> } />
-          <Route path="profesionales" element={ <Profesionales /> } />
-        </Route>          
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <Routers />
   </React.StrictMode>,
   document.getElementById("root")
 );
