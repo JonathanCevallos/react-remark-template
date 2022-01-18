@@ -1,9 +1,10 @@
+import Routers from "./routers/Routers";
 import Remark from "./templates/remark/Remark";
 
 function App() {
   return (
-    <Remark />
-  );
+    <Routers />
+  )
 }
 
 export default App;

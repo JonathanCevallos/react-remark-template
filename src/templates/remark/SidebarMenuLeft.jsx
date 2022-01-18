@@ -1,3 +1,5 @@
+import { Link, NavLink } from "react-router-dom"
+
 const SidebarMenuLeft = () => {
    return (
       <div className="site-menubar site-menubar-light">
@@ -6,11 +8,23 @@ const SidebarMenuLeft = () => {
                <div>
                   <ul className="site-menu" data-plugin="menu">
                      <li className="site-menu-category">General</li>
-                     <li className="site-menu-item active">
-                        <a href="#">
+                     <li className="site-menu-item">
+                        <Link to="/dashboard">
                            <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
                            <span className="site-menu-title">Dashboard</span>
-                        </a>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/products">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Products</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/profesionales">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Profesionales</span>
+                        </Link>
                      </li>
                      <li className="site-menu-item has-sub">
                         <a href="#">
@@ -55,7 +69,6 @@ const SidebarMenuLeft = () => {
                         </ul>
                      </li>
                   </ul>
-                  
                </div>
             </div>
          </div>

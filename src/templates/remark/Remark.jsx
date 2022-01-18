@@ -1,17 +1,15 @@
-import Content from "./Content"
-import Footer from "./Footer"
 import Header from "./Header"
 import SidebarMenuLeft from "./SidebarMenuLeft"
 import SidebarMenuLeftGrid from "./SidebarMenuLeftGrid"
+import Content from "./Content"
 
 const Remark = () => {
    return (
       <>
-         <Header/>
+         <Header />
          <SidebarMenuLeft />
          <SidebarMenuLeftGrid />
          <Content />
-         {/* <Footer /> */}
       </>
    )
 }

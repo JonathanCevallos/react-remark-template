@@ -1,3 +1,6 @@
+import logo from "./logo.png"
+import photo from "./5.jpg"
+
 const Header = () => {
    return (
       <nav className="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
@@ -10,7 +13,7 @@ const Header = () => {
                <i className="icon md-more" aria-hidden="true" />
             </button>
             <div className="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-               <img className="navbar-brand-logo" src="material/base/assets/images/logo.png" title="Remark" />
+               <img className="navbar-brand-logo" src={logo} title="Remark" />
                <span className="navbar-brand-text hidden-xs-down"> Remark</span>
             </div>
             <button type="button" className="navbar-toggler collapsed" data-target="#site-navbar-search" data-toggle="collapse">
@@ -94,38 +97,6 @@ const Header = () => {
                                  <h5>Media
                                     <span className="badge badge-pill badge-success">4</span>
                                  </h5>
-                                 <ul className="blocks-3">
-                                    <li>
-                                       <a className="thumbnail m-0" href="#">
-                                          <img className="w-full" src="material/global/photos/view-1-150x100.jpg" alt="..." />
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a className="thumbnail m-0" href="#">
-                                          <img className="w-full" src="material/global/photos/view-2-150x100.jpg" alt="..." />
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a className="thumbnail m-0" href="#">
-                                          <img className="w-full" src="material/global/photos/view-3-150x100.jpg" alt="..." />
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a className="thumbnail m-0" href="#">
-                                          <img className="w-full" src="material/global/photos/view-4-150x100.jpg" alt="..." />
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a className="thumbnail m-0" href="#">
-                                          <img className="w-full" src="material/global/photos/view-5-150x100.jpg" alt="..." />
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a className="thumbnail m-0" href="#">
-                                          <img className="w-full" src="material/global/photos/view-6-150x100.jpg" alt="..." />
-                                       </a>
-                                    </li>
-                                 </ul>
                               </div>
                               <div className="col-md-4">
                                  <h5 className="mb-0">Accordion</h5>
@@ -187,7 +158,7 @@ const Header = () => {
                   <li className="nav-item dropdown">
                      <a className="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
                         <span className="avatar avatar-online">
-                           <img src="material/global/portraits/5.jpg" alt="..." />
+                           <img src={photo} alt="..." />
                            <i />
                         </span>
                      </a>
