@@ -32,6 +32,12 @@ const SidebarMenuLeft = () => {
                            <span className="site-menu-title">Personas</span>
                         </Link>
                      </li>
+                     <li>
+                        <Link to="/dashboard/idiomas">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Idiomas</span>
+                        </Link>
+                     </li>
                      <li className="site-menu-item has-sub">
                         <a href="#">
                            <i className="site-menu-icon md-google-pages" aria-hidden="true" />
@@ -70,6 +76,7 @@ const SidebarMenuLeft = () => {
                                        <span className="site-menu-title">503</span>
                                     </a>
                                  </li>
+                                 
                               </ul>
                            </li>
                         </ul>

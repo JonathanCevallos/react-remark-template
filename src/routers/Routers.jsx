@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import Idiomas from "../pages/Idiomas/Idiomas"
 import Login from "../pages/Login/Login"
 import NotFound from "../pages/NotFound/NotFound"
 import Personas from "../pages/Personas/Personas"
@@ -15,6 +16,7 @@ const Routers = () => {
                <Route path="products" element={<Products />} />
                <Route path="profesionales" element={<Profesionales />} />
                <Route path="personas" element={ <Personas /> } />
+               <Route path="idiomas" element={<Idiomas />} />
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
