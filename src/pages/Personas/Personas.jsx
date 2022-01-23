@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import Button from "../../components/Button";
-import ListaExpended from "./components/ListaExpended";
 
 const Personas = () => {
 
@@ -18,9 +17,22 @@ const Personas = () => {
    }
 
    const ExpandedComponent = ({ data }) => {
-      //return data.map((row) => row.direccion);
-      console.log(data);
-      return <ListaExpended />;
+      return (
+         <ul className="list-group list-group-bordered">
+            <li className="list-group-item">
+               Dirección: { data.direccion }
+            </li>
+            <li className="list-group-item">
+               Telefono: { data.telefono }
+            </li>
+            <li className="list-group-item">
+               Email: { data.email }
+            </li>
+            <li className="list-group-item">
+               Pais: { data.pais.nombre }
+            </li>
+         </ul>
+      );
    }
 
   return (
