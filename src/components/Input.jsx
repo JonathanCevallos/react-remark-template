@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Alert from "./Alert";
 import Checkbox from "./Checkbox";
 import InputNormal from "./InputNormal";
@@ -17,6 +18,7 @@ const Input = (props) => {
     disabled: false, // atributo
     size: "normal", // small, normal, big
     icon: "",
+    isInvalid: false,
     typeElement: "normal", // normal, select, textarea, radio, checkbox 
     options: [
       {}

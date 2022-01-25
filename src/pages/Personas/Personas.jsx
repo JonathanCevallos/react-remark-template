@@ -20,10 +20,16 @@ const Personas = () => {
       return (
          <ul className="list-group list-group-bordered">
             <li className="list-group-item">
+               Telefono: { data.telefono }
+            </li>
+            <li className="list-group-item">
                Dirección: { data.direccion }
             </li>
             <li className="list-group-item">
-               Telefono: { data.telefono }
+               Dirección: { data.urlFoto }
+            </li>
+            <li className="list-group-item">
+               Descripción: { data.pais.descripcion }
             </li>
             <li className="list-group-item">
                Email: { data.email }
@@ -31,6 +37,7 @@ const Personas = () => {
             <li className="list-group-item">
                Pais: { data.pais.nombre }
             </li>
+            
          </ul>
       );
    }
@@ -43,16 +50,16 @@ const Personas = () => {
                   title="Personas"
                   columns={[
                      {
-                        name: "Nombre",
-                        selector: (row) => row.nombre
-                     },
-                     {
-                        name: "Apellido",
-                        selector: (row) => row.apellido
+                        name: "Nombre y apellido",
+                        selector: (row) => row.nombre + " " + row.apellido
                      },
                      {
                         name: "Username",
                         selector: (row) => row.username
+                     },
+                     {
+                        name: "Cédula",
+                        selector: (row) => row.dni
                      },
                      {
                         name: "Acciones",

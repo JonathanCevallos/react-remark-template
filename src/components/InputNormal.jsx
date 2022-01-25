@@ -21,7 +21,10 @@ const InputNormal = (props) => {
     <input
       type={ config.type }
       className={`form-control 
-      ${ config.round ? "round" : "" } ${ getSize()}`}
+        ${ config.round ? "round" : "" } 
+        ${ getSize()} 
+        ${ config.isInvalid ? "is-invalid":"" }`
+      }
       name={config.name}
       value={config.value}
       onChange={config.onChange}
