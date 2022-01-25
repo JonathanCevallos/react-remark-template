@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Alert from "./Alert";
 import Button from "./Button";
 import Input from "./Input";
@@ -8,7 +8,7 @@ const Form = (props) => {
    var config = {
     onSubmit: undefined,
     inputs: [{}],
-    buttons: [],
+    buttons: [], // [{}]
   };
 
   const [dataForm, setDataForm] = useState(props.dataForm);

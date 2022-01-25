@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
+import Button from "../../components/Button";
 import Form from "../../components/Form";
+import Modal from "../../components/Modal";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [typesProducts, setTypesProducts] = useState([
+    {
+      label: "Selecciona una opción",
+      value: -1
+    }
+  ]);
 
   const columns = [
     {
@@ -50,6 +58,7 @@ const Products = () => {
 
   useEffect(() => {
     getProducts();
+    getTypesProducts();
   }, []);
 
   const ExpandedComponent = ({ data }) => {
@@ -60,140 +69,196 @@ const Products = () => {
     try {
       const response = await fetch("http://localhost:8585/products");
       const data = await response.json();
-      setProducts(data);
+      await setProducts(data);
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  const getTypesProducts = async () => {
+    try {
+      const response = await fetch("http://localhost:8585/types-products");
+      const data = await response.json();
+      const options = data.map(type => {
+        return { label: type.name, value: type.id }
+      });
+      setTypesProducts(options);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   /* Función para enviar un formulario */
-  const handleOnSubmitSave = (e, dataForm) => {
+  const handleOnSubmitSave = async (e, dataForm) => {
     e.preventDefault();
-    console.log("enviando...", dataForm);
+    // validar formulario
+    dataForm.typeProduct = { id: dataForm.typeProduct };
+    if (dataForm.name != "" && dataForm.price != "" && dataForm.typeProduct != "") {
+      try {
+        const response = await fetch("http://localhost:8585/products", {
+          method: "POST",
+          body: JSON.stringify(dataForm),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
+        const data = await response.json();
+        if (data.id > 0) {
+          console.log("Datos registrados...");
+        } else {
+          console.log("Hubo un error al registrar");
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+      console.log(dataForm);
+    } else {
+      console.log("campos incompletos");
+    }
   };
 
-  const configForm = {
-    inputs: [
-      {
-        columns: "8",
-        placeholder: "Nombre del producto",
-        name: "name",
-        value: "",
-      },
-      {
-        columns: "4",
-        placeholder: "Precio",
-        name: "price",
-      },
-      {
-        typeElement: "select",
-        columns: "12",
-        options: [
-          { label: "Seleccione una opción", disabled: true, value: "-1" },
-          { label: "Café" },
-          { label: "Ice Café" },
-          { label: "Torta" },
-        ],
-      },
-      {
-        columns: "12",
-        typeElement: "textarea",
-      },
-      {
-        typeElement: "radio",
-        columns: "6",
-        name: "groupSeleted",
-        options: [
+  const componentForm = (
+    <Form
+      config={{
+        onSubmit: handleOnSubmitSave,
+        inputs: [
           {
-            label: "Opción 1",
-            value: "1",
-            id: "1",
+            name: "name",
+            placeholder: "Nombre Producto",
+            columns: "8",
           },
           {
-            label: "Opción 2",
-            value: "2",
-            id: "2",
-            checked: true,
+            name: "price",
+            placeholder: "Precio",
+          },
+          {
+            name: "typeProduct",
+            typeElement: "select",
+            columns: "12",
+            options: typesProducts,
           },
         ],
-      },
-      {
-        typeElement: "checkbox",
-        columns: "6",
-        options: [
+        buttons: [
           {
-            id: "option1",
-            value: "option1",
-            name: "option1",
-            label: "Opción 1",
-          },
-          {
-            id: "option2",
-            value: "Opción 2",
-            name: "option2",
-            label: "Opción 2",
+            title: "Guardar",
+            type: "submit",
           },
         ],
+      }}
+      dataForm={{
+        name: "",
+        price: "",
+        typeProduct: "4", // -1 para ninguno
+      }}
+    />
+  );
+
+  const configInputs = [
+    {
+      name: "name",
+      columns: "8",
+      placeholder: "Nombre del Producto"
+    },
+    {
+      name: "price",
+      placeholder: "Precio"
+    },
+    {
+      typeElement: "select",
+      columns: "12",
+      name: "typeProduct",
+      options: typesProducts
+    },
+    {
+      typeElement: "radio",
+      columns: "6",
+      name: "sexo",
+      options: [
+        {
+          label: "Masculino"
+        },
+        {
+          label: "Femenino"
+        }
+      ]
+    },
+    {
+      typeElement: "checkbox",
+      columns: "12",
+      options: [
+        {
+          label: "Javascript",
+          name: ""
+        },
+        {
+          label: "TypeScript"
+        },
+        {
+          label: "Spring Boot"
+        }
+      ]
+    }
+  ]
+  
+  const configButtons = [
+    {
+      title: "Guardar",
+      icon: "check",
+      type: "submit"
+    }
+  ]
+
+  const recibirDatos = (e, dataForm) => {
+    e.preventDefault();
+    console.log(dataForm);
+    const response = fetch("", {
+      method: "POST",
+      body: JSON.stringify(dataForm),
+      headers: {
+        'Content-Type': 'application/json'
       },
-    ],
-    buttons: [
-      {
-        type: "submit",
-        title: "Guardar",
-        icon: "check",
-      },
-    ],
-  };
+    });
+
+    const data = response.json();
+    console.log(data);
+  }
 
   return (
     <div className="panel">
       <div className="panel-body">
+        {/* { componentForm } */}
 
-        {/* <Form
-          config={{
+        {/* <Button config={{
+          round: true,
+          icon: "bike",
+          modal: {
+            target: "#modalRegister",
+            toggle: "modal"
+          }
+        }} />
+
+        <Modal config={{
+          title: "Registrar Producto",
+          id: "modalRegister",
+          content: ""
+        }} /> */}
+
+          <Form config={{
             onSubmit: handleOnSubmitSave,
-            inputs: [
-              {
-                name: "name",
-                placeholder: "Nombre Producto",
-                columns: "8"
-              },
-              {
-                name: "price",
-                placeholder: "Precio",
-              },
-              {
-                name: "typeProduct",
-                typeElement: "select",
-                columns: "12",
-                options: [
-                  {
-                    label: "Café",
-                    value: "cafe"
-                  },
-                  {
-                    label: "Ice Café",
-                    value: "ice-cafe"
-                  }
-                ]
-              }
-            ],
-            buttons: [
-              {
-                title: "Guardar",
-                type: "submit",
-              },
-            ],
-          }}
+            inputs: configInputs,
+            buttons: configButtons
+          }} 
+          
           dataForm={{
             name: "",
             price: "",
             typeProduct: ""
-          }}
-        /> */}
+          }} />
+
 
         <div className="table-responsive">
-          <DataTable
+
+          {/* <DataTable
             columns={columns}
             data={products}
             expandableRows
@@ -204,8 +269,27 @@ const Products = () => {
             fixedHeader
             fixedHeaderScrollHeight="600px"
             title="Products"
-            options={"Agregar"}
-          />
+            actions={
+              <Button
+                config={{
+                  icon: "plus",
+                  title: "Agregar",
+                  modal: {
+                    target: "#modalForm",
+                    toggle: "modal",
+                  },
+                }}
+              />
+            }
+          /> */}
+
+          {/* <Modal
+            config={{
+              id: "modalForm",
+              title: "Products",
+              content: "Content",
+            }}
+          /> */}
         </div>
       </div>
     </div>
