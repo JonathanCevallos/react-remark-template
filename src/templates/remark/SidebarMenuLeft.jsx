@@ -32,10 +32,52 @@ const SidebarMenuLeft = () => {
                            <span className="site-menu-title">Personas</span>
                         </Link>
                      </li>
-                     <li>
+                     <li className="site-menu-item">
                         <Link to="/dashboard/idiomas">
                            <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
                            <span className="site-menu-title">Idiomas</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/paises">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Paises</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/facturas">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Facturas</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/personasidiomas">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Personas idiomas</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/preguntas">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Preguntas</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/preguntasservicios">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Preguntas servicios</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/servicios">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Servicios</span>
+                        </Link>
+                     </li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/serviciosplanes">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Servicios planes</span>
                         </Link>
                      </li>
                      <li className="site-menu-item has-sub">
