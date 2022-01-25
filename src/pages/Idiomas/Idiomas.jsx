@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
+import Button from "../../components/Button";
 
 const Idiomas = () =>
 {
@@ -16,9 +17,6 @@ const Idiomas = () =>
         getIdiomas();
      }, []);
 
-     const ExpandedComponent = ({ data }) => {
-        return data.nombre
-     };
      
     return (
         <div className="panel">
@@ -26,15 +24,30 @@ const Idiomas = () =>
                 <div className="table-responsive">
                     <DataTable
                     data={idiomas}
-                    expandableRows
-                    expandableRowsComponent={ExpandedComponent}
                     title = "Idiomas"
                     columns={[
                         {
                             name: "Nombre",
                             selector: row => row.nombre,
-                        }
+                        },
+                        {
+                            name: "Acciones",
+                            cell: () => {
+                               return <><Button config={{
+                                  icon: "edit",
+                                  round: true,
+                                  color: "default"
+                               }} />
+                               <Button config={{
+                                  icon: "delete",
+                                  round: true,
+                                  color: "danger"
+                               }} />
+                               </>
+                            }
+                         }
                     ]}
+                    pagination
                     />
                 </div>
             </div>

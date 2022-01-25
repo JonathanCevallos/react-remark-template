@@ -2,33 +2,52 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
 import Button from "../../components/Button";
 
-const Paises = () =>
+const ServiciosPlanes = () =>
 {
-    const [paises, setPaises] = useState([]);
+    const [servicios_planes, setServiciosPlanes] = useState([]);
 
-    const getPaises = async () => 
+    const getServiciosPlanes = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/paises");
+        const response = await fetch("http://localhost:8067/api/serviciosplanes");
         const data = await response.json();
-        setPaises(data);
+        setServiciosPlanes(data);
     }
 
     useEffect(() => {
-        getPaises();
+        getServiciosPlanes();
      }, []);
 
+     const ExpandedComponent = ({ data }) => {
+        return (
+           <ul className="list-group list-group-bordered">
+              <li className="list-group-item">
+                 Descripción: { data.descripcion }
+              </li>
+              <li className="list-group-item">
+                 Días de entrega: { data.diasDeliviery }
+              </li>
+              <li className="list-group-item">
+                 Precio: { data.precio }
+              </li>
+           </ul>
+        );
+     }
      
     return (
         <div className="panel">
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={paises}
-                    title = "Paises"
+                    data={servicios_planes}
+                    title = "Planes servicios"
                     columns={[
                         {
-                            name: "Nombre",
-                            selector: row => row.nombre,
+                            name: "Nombre del plan",
+                            selector: row => row.plan.nombre,
+                        },
+                        {
+                            name: "Servicio",
+                            selector: row => row.servicio.nombre,
                         },
                         {
                             name: "Acciones",
@@ -47,6 +66,8 @@ const Paises = () =>
                             }
                          }
                     ]}
+                    expandableRows
+                    expandableRowsComponent={ExpandedComponent}
                     pagination
                     />
                 </div>
@@ -55,4 +76,4 @@ const Paises = () =>
     )
 }
 
-export default Paises
+export default ServiciosPlanes

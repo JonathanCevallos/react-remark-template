@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
 import Button from "../../components/Button";
 
-const Paises = () =>
+const PreguntasServicios = () =>
 {
-    const [paises, setPaises] = useState([]);
+    const [preguntas_servicios, setPreguntasServicios] = useState([]);
 
-    const getPaises = async () => 
+    const getPreguntasServicios = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/paises");
+        const response = await fetch("http://localhost:8067/api/preguntasservicios");
         const data = await response.json();
-        setPaises(data);
+        setPreguntasServicios(data);
     }
 
     useEffect(() => {
-        getPaises();
+        getPreguntasServicios();
      }, []);
 
      
@@ -23,12 +23,16 @@ const Paises = () =>
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={paises}
-                    title = "Paises"
+                    data={preguntas_servicios}
+                    title = "Preguntas servicios"
                     columns={[
                         {
-                            name: "Nombre",
-                            selector: row => row.nombre,
+                            name: "Servicio",
+                            selector: row => row.servicio.nombre,
+                        },
+                        {
+                            name: "Pregunta",
+                            selector: row => row.pregunta.descripcion,
                         },
                         {
                             name: "Acciones",
@@ -55,4 +59,4 @@ const Paises = () =>
     )
 }
 
-export default Paises
+export default PreguntasServicios
