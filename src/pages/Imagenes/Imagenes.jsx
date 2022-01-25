@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
+import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 
-const Idiomas = () =>
+const Imagenes = () =>
 {
-    const [idiomas, setIdioma] = useState([]);
+    const [imagenes, setImagen] = useState([]);
 
-    const getIdiomas = async () => 
+    const getImagen = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/idiomas");
+        const response = await fetch("http://localhost:8067/api/imagenes");
         const data = await response.json();
-        setIdioma(data);
+        setImagen(data);
     }
 
     useEffect(() => {
-        getIdiomas();
+        getImagen();
      }, []);
 
      
@@ -23,12 +24,13 @@ const Idiomas = () =>
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={idiomas}
-                    title = "Idiomas"
+                    data={imagenes}
+                    title = "Imagenes"
                     columns={[
                         {
-                            name: "Nombre",
-                            selector: row => row.nombre,
+                            name: "Url",
+                            selector: row =>  row.url,
+                            
                         },
                         {
                             name: "Acciones",
@@ -47,11 +49,13 @@ const Idiomas = () =>
                             }
                          }
                     ]}
+                    pagination
                     />
+
                 </div>
             </div>
         </div>
     )
 }
 
-export default Idiomas
+export default Imagenes

@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
 import Button from "../../components/Button";
 
-const Idiomas = () =>
+const Cotizaciones = () =>
 {
-    const [idiomas, setIdioma] = useState([]);
+    const [cotizaciones, setCotizacion] = useState([]);
 
-    const getIdiomas = async () => 
+    const getCotizacion = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/idiomas");
+        const response = await fetch("http://localhost:8067/api/cotizaciones");
         const data = await response.json();
-        setIdioma(data);
+        setCotizacion(data);
     }
 
     useEffect(() => {
-        getIdiomas();
+        getCotizacion();
      }, []);
 
      
@@ -23,12 +23,28 @@ const Idiomas = () =>
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={idiomas}
-                    title = "Idiomas"
+                    data={cotizaciones}
+                    title = "Cotizaciones"
                     columns={[
                         {
-                            name: "Nombre",
-                            selector: row => row.nombre,
+                            name: "Nombre Cliente",
+                            selector: row => row.cliente.persona.nombre,
+                        },
+                        {
+                            name: "Nombre Profesional",
+                            selector: row => row.profesional.persona.nombre,
+                        },
+                        {
+                            name: "Descripcion",
+                            selector: row => row.descripcion,
+                        },
+                        {
+                            name: "Precio",
+                            selector: row => row.precio,
+                        },
+                        {
+                            name: "Dia",
+                            selector: row => row.dia,
                         },
                         {
                             name: "Acciones",
@@ -47,6 +63,7 @@ const Idiomas = () =>
                             }
                          }
                     ]}
+                    pagination
                     />
                 </div>
             </div>
@@ -54,4 +71,4 @@ const Idiomas = () =>
     )
 }
 
-export default Idiomas
+export default Cotizaciones

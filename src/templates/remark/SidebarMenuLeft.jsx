@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom"
+import Categorias from "../../pages/Categorias/Categorias"
 
 const SidebarMenuLeft = () => {
    return (
@@ -32,12 +33,77 @@ const SidebarMenuLeft = () => {
                            <span className="site-menu-title">Personas</span>
                         </Link>
                      </li>
-                     <li>
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/categorias">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Categorias</span>
+                        </Link>
+                     </li>
+                    
+                     <li className="site-menu-item"> 
+                        <Link to="/dashboard/subcategorias">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">SubCategorias</span>
+                        </Link>
+                     </li>
+
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/clientes">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Clientes</span>
+                        </Link>
+                     </li>
+
+                     <li className="site-menu-item">
                         <Link to="/dashboard/idiomas">
                            <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
                            <span className="site-menu-title">Idiomas</span>
                         </Link>
                      </li>
+
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/documentos">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Documentos</span>
+                        </Link>
+                     </li>
+
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/documentosservicios">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">DocumentosServicios</span>
+                        </Link>
+                     </li>
+
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/imagenes">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Imagenes</span>
+                        </Link>
+                     </li>
+
+
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/cotizaciones">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Cotizaciones</span>
+                        </Link>
+                     </li>
+
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/ocupaciones">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">Ocupaciones</span>
+                        </Link>
+                     </li>
+
+                     <li className="site-menu-item">
+                        <Link to="/dashboard/imagenesservicios">
+                           <i className="site-menu-icon md-view-dashboard" aria-hidden="true" />
+                           <span className="site-menu-title">ImagenesServicios</span>
+                        </Link>
+                     </li>
+
                      <li className="site-menu-item has-sub">
                         <a href="#">
                            <i className="site-menu-icon md-google-pages" aria-hidden="true" />

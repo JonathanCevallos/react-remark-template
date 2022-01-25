@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
 import Button from "../../components/Button";
 
-const Idiomas = () =>
+const ImagenesServicios = () =>
 {
-    const [idiomas, setIdioma] = useState([]);
+    const [imagenesservicios, setImagenServicio] = useState([]);
 
-    const getIdiomas = async () => 
+    const getImagenServicio = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/idiomas");
+        const response = await fetch("http://localhost:8067/api/imagenesservicios");
         const data = await response.json();
-        setIdioma(data);
+        setImagenServicio(data);
     }
 
     useEffect(() => {
-        getIdiomas();
+        getImagenServicio();
      }, []);
 
      
@@ -23,13 +23,19 @@ const Idiomas = () =>
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={idiomas}
-                    title = "Idiomas"
+                    data={imagenesservicios}
+                    title = "ImagenesServicios"
                     columns={[
+
                         {
-                            name: "Nombre",
-                            selector: row => row.nombre,
+                            name: "Nombre servicio",
+                            selector: row => row.servicio.nombre,
                         },
+                        {
+                            name: "Url Documento",
+                            selector: row => row.imagen.url,
+                        },
+                        
                         {
                             name: "Acciones",
                             cell: () => {
@@ -47,6 +53,7 @@ const Idiomas = () =>
                             }
                          }
                     ]}
+                    pagination
                     />
                 </div>
             </div>
@@ -54,4 +61,4 @@ const Idiomas = () =>
     )
 }
 
-export default Idiomas
+export default ImagenesServicios

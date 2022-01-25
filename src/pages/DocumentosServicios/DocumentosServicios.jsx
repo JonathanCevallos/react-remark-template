@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
 import Button from "../../components/Button";
 
-const Idiomas = () =>
+const DocumentosServicios = () =>
 {
-    const [idiomas, setIdioma] = useState([]);
+    const [documentosservicios, setDocumentoServicio] = useState([]);
 
-    const getIdiomas = async () => 
+    const getDocumentoServicio = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/idiomas");
+        const response = await fetch("http://localhost:8067/api/documentosservicios");
         const data = await response.json();
-        setIdioma(data);
+        setDocumentoServicio(data);
     }
 
     useEffect(() => {
-        getIdiomas();
+        getDocumentoServicio();
      }, []);
 
      
@@ -23,13 +23,19 @@ const Idiomas = () =>
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={idiomas}
-                    title = "Idiomas"
+                    data={documentosservicios}
+                    title = "DocumentosServicios"
                     columns={[
+
                         {
-                            name: "Nombre",
-                            selector: row => row.nombre,
+                            name: "Nombre servicio",
+                            selector: row => row.servicio.nombre,
                         },
+                        {
+                            name: "Url Documento",
+                            selector: row => row.documento.url,
+                        },
+                        
                         {
                             name: "Acciones",
                             cell: () => {
@@ -47,6 +53,7 @@ const Idiomas = () =>
                             }
                          }
                     ]}
+                    pagination
                     />
                 </div>
             </div>
@@ -54,4 +61,4 @@ const Idiomas = () =>
     )
 }
 
-export default Idiomas
+export default DocumentosServicios

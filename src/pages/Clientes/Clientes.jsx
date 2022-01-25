@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
 import Button from "../../components/Button";
 
-const Idiomas = () =>
+const Clientes = () =>
 {
-    const [idiomas, setIdioma] = useState([]);
+    const [cliente, setCliente] = useState([]);
 
-    const getIdiomas = async () => 
+    const getCliente = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/idiomas");
+        const response = await fetch("http://localhost:8067/api/clientes");
         const data = await response.json();
-        setIdioma(data);
+        setCliente(data);
     }
 
     useEffect(() => {
-        getIdiomas();
+        getCliente();
      }, []);
 
      
@@ -23,13 +23,15 @@ const Idiomas = () =>
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={idiomas}
-                    title = "Idiomas"
+                    data={cliente}
+
+                    title = "Clientes"
                     columns={[
                         {
-                            name: "Nombre",
-                            selector: row => row.nombre,
+                            name: "Nombre Cliente",
+                            selector: row => row.persona.nombre,
                         },
+                        
                         {
                             name: "Acciones",
                             cell: () => {
@@ -47,6 +49,7 @@ const Idiomas = () =>
                             }
                          }
                     ]}
+                    pagination
                     />
                 </div>
             </div>
@@ -54,4 +57,4 @@ const Idiomas = () =>
     )
 }
 
-export default Idiomas
+export default Clientes

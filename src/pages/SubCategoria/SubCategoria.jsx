@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component"
 import Button from "../../components/Button";
 
-const Idiomas = () =>
+const SubCategorias = () =>
 {
-    const [idiomas, setIdioma] = useState([]);
+    const [subcategoria, setSubCategoria] = useState([]);
 
-    const getIdiomas = async () => 
+    const getSubCategoria = async () => 
     {
-        const response = await fetch("http://localhost:8067/api/idiomas");
+        const response = await fetch("http://localhost:8067/api/subcategorias");
         const data = await response.json();
-        setIdioma(data);
+        setSubCategoria(data);
     }
 
     useEffect(() => {
-        getIdiomas();
+        getSubCategoria();
      }, []);
 
      
@@ -23,11 +23,16 @@ const Idiomas = () =>
             <div className="panel-body">
                 <div className="table-responsive">
                     <DataTable
-                    data={idiomas}
-                    title = "Idiomas"
+                    data={subcategoria}
+
+                    title = "SubCategorias"
                     columns={[
                         {
-                            name: "Nombre",
+                            name: "Nombre Categoria",
+                            selector: row => row.categoria.nombre,
+                        },
+                        {
+                            name: "Nombre SubCategoria",
                             selector: row => row.nombre,
                         },
                         {
@@ -47,6 +52,7 @@ const Idiomas = () =>
                             }
                          }
                     ]}
+                    pagination
                     />
                 </div>
             </div>
@@ -54,4 +60,4 @@ const Idiomas = () =>
     )
 }
 
-export default Idiomas
+export default SubCategorias
